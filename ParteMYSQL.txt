@@ -1,0 +1,21 @@
+CREATE DATABASE IF NOT EXISTS dbprova;
+SHOW DATABASES;
+USE dbprova;
+
+
+CREATE TABLE tab_utenti (
+IdUtente INT NOT NULL AUTO_INCREMENT,
+NomeUtente VARCHAR(70) NOT NULL,
+EmailUtente VARCHAR(70) NOT NULL,
+PRIMARY KEY (IdUtente)
+);
+
+Describe  tab_utenti;
+
+/*creo l'utente utenterootdbprova che vede solo il db dbprova con password:password*/
+create user 'utenterootdbprova'@'localhost' identified by 'password';
+/*dò tutti i privilegi all'utente utenterootdbprova sul db dbprova*/
+grant all on dbprova.* to 'utenterootdbprova'@'localhost';
+
+/*dò questo comando qui perchè viene fuori l'errore ER_NOT_SUPPORTED_AUTH_MODE*/
+ALTER USER 'utenterootdbprova'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
