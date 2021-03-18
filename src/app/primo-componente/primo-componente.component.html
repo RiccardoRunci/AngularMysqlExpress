@@ -1,0 +1,15 @@
+Mi manda il json ma questo json non riesco a lavorarlo!!!
+<button type="button" (click)="VisualizzaUtenti()">Vedi tutti gli utenti</button>
+<hr>
+Inserisci un utente:<br>
+UserName:<input type="text" #UserName><br>
+Email:<input type="Email" #Email><br>
+<button type="button" (click)=" InserisciUtente(UserName.value,Email.value)">Inserisci utente!</button>
+<hr>
+Vedi un utente tramite il suo id:
+id:<input type="text" #idUtente>
+<button type="button" (click)=" VisualizzaUtente(idUtente.value)">Vedi un utente tramite il suo id!</button>
+
+<p *ngFor="let utenti of VariabileListaUtenti$ | async">
+Id Utente: {{utenti.IdUtente}} Nome Utente: {{utenti.NomeUtente}} Email Utente: {{utenti.EmailUtente}}
+</p>
